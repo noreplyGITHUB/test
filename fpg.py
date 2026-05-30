@@ -1,13 +1,12 @@
 import os
 import sys
 #Предпочтительны пути без кириллицы и без пробелов
-save_path= "C:/Users/user/Documents/file.txt" #Убедитсь что использованны знаки '/' для между директориями и файлами, предпочтителен полный путь
 
 save_path = sys.argv[1].replace('\\','/')
 feature_path = sys.argv[2].replace('\\','/')
 
-if not(os.access(save_path, os.W_OK)):exit("Недостаточно прав для записи в папку", save_path)
-if not(os.access(feature_path, os.R_OK)):exit("Недостаточно прав для чтения папки", feature_path)
+if not(os.access(save_path, os.W_OK)):exit("Недостаточно прав для записи в папку "+save_path)
+if not(os.access(feature_path, os.R_OK)):exit("Недостаточно прав для чтения папки "+feature_path)
 
 features = []
 try:
