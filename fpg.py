@@ -23,12 +23,12 @@ try:
             with open(path,'r', encoding="utf-8-sig") as feature:
                 for line in feature:
                     if "Сценарий:" in line.split():
-                        scenarios.append(line[line.find("Сценарий:")+9:])
+                        scenarios.append(line[line.find("Сценарий:")+9:line.find("Дано ")])
             save_file.write(f"{path[len(feature_path):]} сценарии:")
             save_file.write("\n")
             for scene in scenarios:
                 save_file.write(f" >>> {scene}")
-            save_file.write("\n")
+                save_file.write("\n")
 except PermissionError:
     exit("Недостаточно прав для записи в папку "+save_path)
 print("Done!")
