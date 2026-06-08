@@ -1,9 +1,13 @@
 import os
 import sys
 #Предпочтительны пути без кириллицы и без пробелов
+if len(sys.argv)!=3:exit("Ожидалось 2 параметра, но дано "+len(sys.argv))
+
 
 save_path = sys.argv[1].replace('\\','/')
+if not(os.path.isfile(save_path)): exit("Ожидался путь на файл но получили "+save_path)
 feature_path = sys.argv[2].replace('\\','/')
+if not(os.path.isdir(feature_path)): exit("Ожидался путь на папку но получили "+feature_path)
 
 features = []
 try:
